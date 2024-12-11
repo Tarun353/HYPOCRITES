@@ -3,10 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+    <title>Search the Grey World</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #d3d3d3; /* Light grey background */
+            font-family: Arial, sans-serif;
+            color: #808080; /* Grey text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #696969; /* Dim grey for heading */
+        }
+
+        .search-container {
+            margin-top: 20px;
+        }
+
+        .search-box {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid #a9a9a9; /* Dark grey border */
+            border-radius: 5px;
+            background-color: #f5f5f5; /* Light grey search box */
+            color: #808080; /* Grey text */
+        }
+
+        .search-button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #a9a9a9; /* Dark grey button */
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #696969; /* Dim grey on hover */
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #a9a9a9; /* Subtle grey */
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is a simple website created by me.</p>
+    <h1>The World is Grey</h1>
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search...">
+        <button class="search-button">Search</button>
+    </div>
+    <div class="footer">
+        <p>Embrace the grey. Life is not black and white.</p>
+    </div>
 </body>
 </html>
