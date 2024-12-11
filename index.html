@@ -49,21 +49,64 @@
             background-color: #696969; /* Dim grey on hover */
         }
 
-        .footer {
-            margin-top: 50px;
-            font-size: 14px;
-            color: #a9a9a9; /* Subtle grey */
+        .results {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .politician-image {
+            max-width: 150px;
+            margin-top: 10px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <h1>The World is Grey</h1>
     <div class="search-container">
-        <input type="text" class="search-box" placeholder="Search...">
-        <button class="search-button">Search</button>
+        <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+        <button class="search-button" onclick="searchPolitician()">Search</button>
     </div>
-    <div class="footer">
-        <p>Embrace the grey. Life is not black and white.</p>
-    </div>
+    <div class="results" id="results"></div>
+
+    <script>
+        // Hardcoded politician data
+        const politicianData = [
+            {
+                name: "Narendra Modi",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Narendra_Modi_2019.jpg/800px-Narendra_Modi_2019.jpg",
+                mother_name: "Heeraben Modi",
+                birth_date: "1950-09-17"
+            },
+            {
+                name: "Amit Shah",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Amit_Shah.jpg/800px-Amit_Shah.jpg",
+                mother_name: "Kantaben Shah",
+                birth_date: "1964-10-22"
+            }
+        ];
+
+        function searchPolitician() {
+            const searchInput = document.getElementById("searchInput").value.trim().toLowerCase();
+            const resultsDiv = document.getElementById("results");
+
+            // Clear previous results
+            resultsDiv.innerHTML = "";
+
+            // Find the politician
+            const politician = politicianData.find(p => p.name.toLowerCase() === searchInput);
+
+            if (politician) {
+                resultsDiv.innerHTML = `
+                    <h2>${politician.name}</h2>
+                    <img src="${politician.image}" alt="${politician.name}" class="politician-image">
+                    <p><strong>Mother's Name:</strong> ${politician.mother_name}</p>
+                    <p><strong>Birth Date:</strong> ${politician.birth_date}</p>
+                `;
+            } else {
+                resultsDiv.innerHTML = "<p>Politician not found. Please try again.</p>";
+            }
+        }
+    </script>
 </body>
 </html>
